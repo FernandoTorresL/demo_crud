@@ -5,6 +5,7 @@ use App\Customer;
 use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class Crud4Controller extends Controller
 {
@@ -27,7 +28,7 @@ class Crud4Controller extends Controller
             if ($request->hasFile('image')) {
                 $dir = 'uploads/';
                 $extension = strtolower($request->file('image')->getClientOriginalExtension()); // get image extension
-                $fileName = str_random() . '.' . $extension; // rename image
+                $fileName = Str::random(40) . '.' . $extension; // rename image
                 $request->file('image')->move($dir, $fileName);
                 $image->image = $fileName;
             }

@@ -21,6 +21,9 @@ Homestead.json
 /.vagrant
 .phpunit.result.cache
 
+# Laravel project demo_crud specific
+public/uploads/
+
 ### macOS ###
 # General
 .DS_Store
